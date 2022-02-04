@@ -22,13 +22,11 @@ fn materialToSC2Standard mat texturename =
 	mat.Normal.filename = substituteString texturename "Diffuse" "norm"
 	mat.Specular.filename = substituteString texturename "Diffuse" "spec"
 	mat.Specular.ColorChannels = 0
-	mat.GlossExp.filename = substituteString texturename "Diffuse" "mask_gloss_ao"
-	mat.GlossExp.ColorChannels = 4
+	mat.GlossExp.filename = substituteString texturename "Diffuse" "spec"
+	mat.GlossExp.ColorChannels = 5
 	mat.EnvironmentMask.filename = substituteString texturename "Diffuse" "spec"			
-	mat.alphaMask.filename = substituteString texturename "Diffuse" "mask_gloss_ao"
+	mat.alphaMask.filename = substituteString texturename "Diffuse" "norm"
 	mat.alphaMask.ColorChannels = 3
-	mat.AmbientOcclusion.filename = substituteString texturename "Diffuse" "mask_gloss_ao"
-	mat.AmbientOcclusion.ColorChannels = 5
 	mat
 )
 
