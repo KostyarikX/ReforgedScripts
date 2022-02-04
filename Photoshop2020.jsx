@@ -86,8 +86,30 @@ function runthis()
 		app.activeDocument.channels[0].duplicate(); 
 		app.activeDocument.channels.getByName('Red copy').name = 'Alpha 1';
 		
+		app.activeDocument = wc3_diffuse;
+		try 
+		{ 
+			app.activeDocument.activeChannels = [app.activeDocument.channels[3]];
+		}
+        catch(e) 
+		{
+			app.activeDocument.channels.add();
+			app.activeDocument.activeChannels = [app.activeDocument.channels[3]];
+			app.activeDocument.selection.selectAll();
+			app.activeDocument.activeLayer.invert();
+        }
+		finally
+		{
+		app.activeDocument.selection.selectAll();
+		app.activeDocument.selection.copy();
+		}
+		app.activeDocument = wc3_normal;
+		
 		app.activeDocument.activeChannels = [app.activeDocument.channels[0]];
-		activeDocument.selection.fill(cWhite);
+		app.activeDocument.paste();
+		
+		/*app.activeDocument.activeChannels = [app.activeDocument.channels[0]];
+		activeDocument.selection.fill(cWhite);*/
 		
 		app.activeDocument.activeChannels = [app.activeDocument.channels[1]];
 		app.activeDocument.activeLayer.invert();
@@ -316,7 +338,7 @@ function runthis()
 		
 		// MASK_GLOSS
 		
-		lBck.visible = false;
+		/*lBck.visible = false;
 		lB.visible = false;
 		lA.visible = false;
 		lR.visible = false;
@@ -365,7 +387,7 @@ function runthis()
 		// END MASK_GLOSS
 
 		savedds(File(path2 + "/" + ModelName + "_mask_gloss_ao.dds"));
-
+		*/
 		activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 		$.sleep(1000)
     }
@@ -438,7 +460,7 @@ function opendds(ddspath2)
 	desc7.putBoolean( idmipm, false );
 	var idalps = charIDToTypeID( "alps" );
 	desc7.putBoolean( idalps, true );
-	var idIntelTextureWorksIntelTextureWorks = stringIDToTypeID( "IntelÂ® Texture Works IntelÂ® Texture Works" );
+	var idIntelTextureWorksIntelTextureWorks = stringIDToTypeID( "Intel® Texture Works Intel® Texture Works" );
     desc6.putObject( idAs, idIntelTextureWorksIntelTextureWorks, desc7 );
 	var idDocI = charIDToTypeID( "DocI" );
 	desc6.putInteger( idDocI, 220 );
