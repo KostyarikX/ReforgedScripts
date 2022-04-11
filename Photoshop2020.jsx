@@ -83,7 +83,8 @@ function runthis()
 		
 		app.activeDocument = wc3_normal;
 				
-		app.activeDocument.channels[0].duplicate(); 
+		app.activeDocument.channels[0].duplicate();
+	    
 		app.activeDocument.channels.getByName('Red copy').name = 'Alpha 1';
 		
 		app.activeDocument = wc3_diffuse;
@@ -460,7 +461,7 @@ function opendds(ddspath2)
 	desc7.putBoolean( idmipm, false );
 	var idalps = charIDToTypeID( "alps" );
 	desc7.putBoolean( idalps, true );
-	var idIntelTextureWorksIntelTextureWorks = stringIDToTypeID( "Intel® Texture Works Intel® Texture Works" );
+	var idIntelTextureWorksIntelTextureWorks = stringIDToTypeID( "IntelÂ® Texture Works IntelÂ® Texture Works" );
     desc6.putObject( idAs, idIntelTextureWorksIntelTextureWorks, desc7 );
 	var idDocI = charIDToTypeID( "DocI" );
 	desc6.putInteger( idDocI, 220 );
